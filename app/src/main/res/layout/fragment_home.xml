@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ThisLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundregis"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".HomeFragment">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Xin chào!"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/bariol_bold"
+            android:textSize="20dp">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/nameUser"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/bariol_bold"
+            android:textSize="20dp">
+        </TextView>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/slide1"
+            app:iss_auto_cycle="true"
+            app:iss_delay="2"
+            app:iss_error_image="@drawable/slide2"
+            app:iss_period="2000"
+            app:iss_placeholder="@drawable/slide1" />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/volang">
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text='\n "Vì gia đình ta \n Nghĩ về em anh vững vàng tay lái \n Thương cha mẹ anh nhè nhẹ chân ga."'
+            android:textAlignment="center"
+            android:fontFamily="@font/bariol_regular">
+        </TextView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/bariol_bold"
+            android:text="Tin tức phổ biến"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recview_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:spanCount="1">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

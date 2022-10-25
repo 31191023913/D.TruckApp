@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/card_itemnews"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
+    android:layout_height="150dp"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="8dp"
+    android:focusable="true"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardPreventCornerOverlap="true"
+    android:clickable="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/contentNews"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleNew"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/bariol_regular"
+                android:textStyle="bold"
+                android:text="Lắp còi hơi rồi bấm inh ỏi, một tài xế taxi bị phạt tiền triệu"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:ellipsize="end"
+                android:maxLines="2"/>
+
+            <TextView
+                android:id="@+id/dateofNew"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="16/8/2022"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+            <TextView
+                android:id="@+id/descriptionNews"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/bariol_regular"
+                android:text="Thừa nhận lắp còi hơi để tranh đường mỗi khi gặp kẹt xe, một tài xế taxi tại Đà Nẵng bị phạt tiền triệu, tước bằng lái 2 tháng."
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/GotoDetail"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:fontFamily="@font/bariol_regular"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:text="Xem thêm"-->
+<!--                android:background="@drawable/borderdecorate"/>-->
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgNewss"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toEndOf="@+id/contentNews"
+            android:src="@drawable/imgnews" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_itemOrder"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="15dp"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="8dp"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    app:cardPreventCornerOverlap="true"
+    android:clickable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUserPost"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_account"
+                android:layout_margin="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/nameUserPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NameUser"
+
+                    android:textColor="@color/teal_700"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đã đăng vào khoảng:"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/date_orderpost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textStyle="bold"
+                        android:text="DataTime"
+                        android:textColor="@color/teal_700"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loại ủy thác:"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/carServiceCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textStyle="bold"
+                        android:text="............"
+                        android:textColor="@color/teal_700"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại liên lạc:"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/txtNumberContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:text="0708495567"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số xe yêu cầu:"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/txtNumberTruckOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="0"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPostContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Ordern"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/bariol_bold"
+            android:textSize="20sp"
+            android:ellipsize="end"
+            android:textColor="@color/teal_700"
+            android:maxLines="2"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

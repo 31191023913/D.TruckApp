@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradients2"
+    tools:context=".FinishOrderFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/backtolistCart"
+            android:layout_margin="5dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ủy thác"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Người đăng:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/postNameC"
+            android:fontFamily="@font/bariol_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:text="Name"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liên lạc:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/postContactC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/bariol_bold"
+            android:text="Phone"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại hình ủy thác:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/CategoryTruckSerC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/bariol_bold"
+            android:text="NameCategory"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/borderdecorate">
+        <TextView
+            android:id="@+id/OrderDetailsC"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bariol_bold"
+            android:textColor="@color/teal_700"
+            android:textSize="20dp"
+            android:text="Chi tiết về order"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng xe bạn cung cấp :"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/numberUwantC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/teal_700"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/buttonPay"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_bg"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="Hoàn thành và Thanh toán"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:text="Phí trung gian mỗi đơn 5.000VNĐ\n(Phí trung gian cho app, để developer có động lực thêm phát triển app thêm)"/>
+
+
+</LinearLayout>

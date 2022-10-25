@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradients2"
+    tools:context=".DetailOrderFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/backtolist"
+            android:layout_margin="5dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chi tiết ủy thác"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Người đăng:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/postName"
+            android:fontFamily="@font/bariol_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:text="Name"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng vào:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/postTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/bariol_bold"
+            android:text="DataTime"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liên lạc:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/postContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/bariol_bold"
+            android:text="Phone"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại hình ủy thác:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/CategoryTruckSer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/bariol_bold"
+            android:text="NameCategory"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/borderdecorate">
+        <TextView
+            android:id="@+id/OrderDetails"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bariol_bold"
+            android:textColor="@color/teal_700"
+            android:textSize="20dp"
+            android:text="Chi tiết về order"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chủ đơn yêu cầu :"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/numberTheywant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/teal_700"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số xe bạn có thể cung cấp:"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textSize="20sp" />
+    <EditText
+        android:id="@+id/NumberTruckYouProvive"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:text="0"
+        android:fontFamily="@font/bariol_bold"
+        android:inputType="number"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTakeOrder"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/buttonblue"
+        android:text="Nhận ủy thác"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

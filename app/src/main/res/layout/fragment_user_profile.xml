@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".UserProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/background_gradients">
+
+        <TextView
+            android:id="@+id/UsernameP"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="User Name"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/imguser"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="90dp"
+            android:src="@drawable/ic_account"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="-80dp">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="#FEF8BF"
+            app:cardElevation="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_order_post_online"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/NumberOrderPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/bariol_bold"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/NumberOrderDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số đơn đăng"
+                    android:textSize="14sp"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/bariol_regular"
+                    android:layout_below="@+id/NumberOrderPost"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="#FEF8BF"
+            app:cardElevation="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_orderdone" />
+
+                <TextView
+                    android:id="@+id/NumberOrderComplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/bariol_bold"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/OrderCompleteDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số đơn hoàn thành"
+                    android:textSize="14sp"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/bariol_regular"
+                    android:layout_below="@+id/NumberOrderComplete"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bariol_bold"
+            android:textSize="25dp"
+            android:textColor="#2196F3"
+            android:text="Hồ sơ"/>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/EditProfileS"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Chỉnh sửa"
+                android:drawableRight="@drawable/ic_editpen"
+                android:drawablePadding="1dp"
+                android:clickable="true"
+                android:textColor="@color/common_google_signin_btn_text_light"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/buttonblue"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Họ và tên"
+                    android:layout_marginLeft="50dp"/>
+                <TextView
+                    android:id="@+id/NameShows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên của User"
+                    android:drawableLeft="@drawable/ic_account"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/buttonyellow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_marginLeft="50dp"/>
+                <TextView
+                    android:id="@+id/EmailShows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email của User"
+                    android:drawableLeft="@drawable/ic_email"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/buttonblue">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại"
+                    android:layout_marginLeft="50dp"/>
+                <TextView
+                    android:id="@+id/PhoneShows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại của User"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/buttonyellow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại xe lái"
+                    android:layout_marginLeft="50dp"/>
+                <TextView
+                    android:id="@+id/DriveShows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loại xe lái của User"
+                    android:drawableLeft="@drawable/ic_driving"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/buttonblue">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mật khẩu"
+                    android:layout_marginLeft="50dp"/>
+                <TextView
+                    android:id="@+id/PasswordShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password của User"
+                    android:drawableLeft="@drawable/ic_password"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="10dp"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bariol_bold"
+                    android:textSize="25dp"
+                    android:textColor="#2196F3"
+                    android:text="Về bản thân"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/borderdecorate">
+                    <TextView
+                        android:id="@+id/BioShow"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bariol_regular"
+                        android:textSize="20dp"
+                        android:text="Chi tiết về bạn"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnDangXuat"
+                        android:text="Đăng Xuất"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_margin="8dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/buttonyellow"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

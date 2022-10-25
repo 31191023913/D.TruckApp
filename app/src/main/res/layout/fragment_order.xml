@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundregis"
+    android:orientation="vertical"
+    tools:context=".OrderFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/layoutheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="?attr/actionBarTheme"
+        app:menu="@menu/menu_item"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@drawable/bordertv"
+        android:padding="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/search_backgroundicon"-->
+<!--            android:layout_margin="10dp"-->
+<!--            app:queryHint="Tìm kiếm: "/>-->
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:background="@drawable/container_search"-->
+<!--            android:orientation="horizontal">-->
+<!--            <EditText-->
+<!--                android:id="@+id/search_bar"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@null"-->
+<!--                android:hint="Tìm kiếm đơn hàng"-->
+<!--                android:privateImeOptions="actionSearch"-->
+<!--                android:inputType="text"-->
+<!--                android:paddingStart="15dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingEnd="15dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="16sp"-->
+<!--                android:importantForAutofill="no"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:id="@+id/btnSearchNow"-->
+<!--                android:background="@drawable/search_backgroundicon"-->
+<!--                android:src="@drawable/ic_search"-->
+<!--                android:padding="6dp"/>-->
+<!--        </LinearLayout>-->
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Các đơn hàng "
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recview_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="1">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddPostOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/ic_add_circle_outline"
+            app:backgroundTint="#FEF8BF" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
