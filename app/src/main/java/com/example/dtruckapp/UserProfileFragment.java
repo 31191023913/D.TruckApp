@@ -37,12 +37,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class UserProfileFragment extends Fragment {
 
     View Pview;
     TextView UserName, NameUserdShow,UserEmailp,UserPhonep,UserDLp,UserPassp, MoreAboutUser, EdítSave;;
-    ImageView UserIMGS;
+    CircleImageView UserIMGS;
     Button btnSignOut;
     String fullNameUs, EmailUs, phoneNumberUs, PasswordUs, driveLiensceUs, bioUs, urlImgUs;
     private FirebaseAuth userAuth;

@@ -46,11 +46,13 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class EditProfileFragment extends Fragment {
     View Editview;
     TextInputEditText NameUserdedit,UserEmailedit,UserPhoneedit,UserDLpedit,UserPasspedit, MoreAboutUseredit;
-    ImageView UserIMG;
+    CircleImageView UserIMG;
     ImageButton gobackprofile;
     Button SaveProfileChange;
     TextView textUpdate;

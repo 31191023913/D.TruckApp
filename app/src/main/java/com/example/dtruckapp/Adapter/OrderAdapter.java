@@ -48,7 +48,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyOrderViewH
     List<Order> ordershow;
     List<Order> ordershowOld;
 
-    public OrderAdapter(ArrayList<Order> ordershow, ArrayList<Order> ordershowOld) {
+    public OrderAdapter(List<Order> ordershow, List<Order> ordershowOld) {
         this.ordershow = ordershow;
         this.ordershowOld = ordershowOld;
     }

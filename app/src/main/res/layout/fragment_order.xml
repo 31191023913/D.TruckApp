@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="?attr/actionBarTheme"
+        android:layout_margin="10dp"
         app:menu="@menu/menu_item"
         android:minHeight="?attr/actionBarSize"
         android:background="@drawable/bordertv"

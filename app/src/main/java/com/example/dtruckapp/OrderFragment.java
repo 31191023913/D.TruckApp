@@ -76,7 +76,7 @@ import java.util.Objects;
 public class OrderFragment extends Fragment {
     private RecyclerView orderrecyclerView;
     private OrderAdapter orderAdapter;
-    private ArrayList<Order> orderlist,orderlistold;
+    private List<Order> orderlist,orderlistold;
     private DatabaseReference uDataref, PostRef, PostRefS;
     private SearchView searchViewO;
 
@@ -139,11 +139,11 @@ public class OrderFragment extends Fragment {
         orderrecyclerView.setHasFixedSize(true);
         orderrecyclerView.setLayoutManager(linearLayoutManagerO);
         orderlist = new ArrayList<>();
+        orderlistold = new ArrayList<>();
         orderAdapter= new OrderAdapter(orderlist,orderlistold);
         orderrecyclerView.setAdapter(orderAdapter);
 
         GetOrder();
-
 
         fabPostOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +151,6 @@ public class OrderFragment extends Fragment {
                 UploadOrder(Gravity.CENTER);
             }
         });
-
         return Oview;
     }
 
@@ -309,12 +308,6 @@ public class OrderFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@NonNull Bundle savedInstanceState){
-        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu,@NonNull MenuInflater menuInflater){
         menuInflater.inflate(R.menu.menu_item,menu);
 
@@ -340,6 +333,11 @@ public class OrderFragment extends Fragment {
         });
 
         super.onCreateOptionsMenu(menu, menuInflater);
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState){
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
     }
 
 

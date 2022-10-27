@@ -39,7 +39,7 @@ tools:context=".EditProfileFragment">
         android:layout_gravity="center"
         android:text="Nhấn vào ảnh để thay dổi"/>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imguseredit"
         android:layout_width="100dp"
         android:layout_height="100dp"

@@ -112,38 +112,42 @@ public class DetailOrderFragment extends Fragment {
         OrderTake.put("orderDesc",DetailOrders.getText().toString());
         OrderTake.put("orderCategory",CategoryPost.getText().toString());
         OrderTake.put("orderTakenBy", Common.currentUser.getFullName());
-        if ( giveN < Integer.parseInt(numberTheywant.getText().toString()) ){
+
+        if (orderIDs.contains(Current_Driver_id)){
+            Toast.makeText(getContext(),"Bạn là người ra ủy thác không thể nhận đơn này!!",Toast.LENGTH_LONG).show();
+        } else if (giveN == 0) {
+            Toast.makeText(getContext(),"Bạn chưa nhập số lượng xe bạn sẽ cung ứng!!",Toast.LENGTH_LONG).show();
+        } else if (giveN < Integer.parseInt(numberTheywant.getText().toString())) {
             AddToCart.child(orderIDs).setValue(OrderTake).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(getContext(),"Nhận ủy thác thành công!!",Toast.LENGTH_LONG).show();
-                        Map<String,Object> mapNuM=new HashMap<>();
-                        mapNuM.put("orderCarRequired",String.valueOf( requica - giveN ));
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getContext(), "Nhận ủy thác thành công!!", Toast.LENGTH_LONG).show();
+                        Map<String, Object> mapNuM = new HashMap<>();
+                        mapNuM.put("orderCarRequired", String.valueOf(requica - giveN));
                         OrderDaRef.child(orderIDs).updateChildren(mapNuM);
                     }
                 }
             });
-        }
-        else if (giveN == requica){
+        } else if (giveN == requica) {
             AddToCart.child(orderIDs).setValue(OrderTake).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(getContext(),"Nhận ủy thác thành công!!",Toast.LENGTH_LONG).show();
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getContext(), "Nhận ủy thác thành công!!", Toast.LENGTH_LONG).show();
                         OrderDaRef.child(orderIDs).removeValue();
                     }
                 }
             });
-        }
-        else if (giveN > requica ){
-            Toast.makeText(getContext(),"Số lượng xe ủy thác vượt quá yêu cầu!!",Toast.LENGTH_LONG).show();
+        } else if (giveN > requica) {
+            Toast.makeText(getContext(), "Số lượng xe ủy thác vượt quá yêu cầu!!", Toast.LENGTH_LONG).show();
         }
 
 
     }
 
     private void getOrderDetail(String orderIDs) {
+
         OrderDaRef = FirebaseDatabase.getInstance().getReference().child("Orders");
         OrderDaRef.child(orderIDs).addValueEventListener(new ValueEventListener() {
             @Override
@@ -157,7 +161,6 @@ public class DetailOrderFragment extends Fragment {
                     CategoryPost.setText(orderdetail.getOrderCategory());
                     DetailOrders.setText(orderdetail.getOrderDesc());
                     numberTheywant.setText(orderdetail.getOrderCarRequired());
-
 
                 }
             }
