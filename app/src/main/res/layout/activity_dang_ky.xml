@@ -8,6 +8,7 @@
     android:background="@drawable/backgroundregis"
     tools:context=".DangKy">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:text="Đăng Ký"
-            android:layout_marginTop="35dp"/>
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -164,23 +165,35 @@
             android:inputType="textPassword"/>
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="15dp">
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_signup"
+            android:text="QUAY LẠI"
+            android:textColor="@android:color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnTaoTK"
-            android:text="TẠO TÀI KHOẢN"
-            android:textColor="@android:color/white"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/buttonblue"/>
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_signin"
+            android:text="TẠO TÀI KHOẢN"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
+
 
 
 

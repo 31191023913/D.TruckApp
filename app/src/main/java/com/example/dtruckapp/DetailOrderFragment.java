@@ -93,7 +93,6 @@ public class DetailOrderFragment extends Fragment {
     }
 
     private void AddToCartList() {
-
         Nt = NumberTruckProvived.getText().toString();
         if (!TextUtils.isEmpty(Nt)){
             giveN = Integer.parseInt(Nt);
@@ -102,11 +101,8 @@ public class DetailOrderFragment extends Fragment {
         if (!TextUtils.isEmpty(Rq)){
             requica = Integer.parseInt(Rq);
         }
-
         OrderDaRef = FirebaseDatabase.getInstance().getReference().child("Orders");
-
         AddToCart = FirebaseDatabase.getInstance().getReference().child("OrderReceiveList").child(Current_Driver_id);
-
         Map<String,Object> OrderTake=new HashMap<>();
         OrderTake.put("orderuid",orderIDs);
         OrderTake.put("orderNamePublisher",Publisher.getText().toString());
@@ -116,7 +112,6 @@ public class DetailOrderFragment extends Fragment {
         OrderTake.put("orderDesc",DetailOrders.getText().toString());
         OrderTake.put("orderCategory",CategoryPost.getText().toString());
         OrderTake.put("orderTakenBy", Common.currentUser.getFullName());
-
         if ( giveN < Integer.parseInt(numberTheywant.getText().toString()) ){
             AddToCart.child(orderIDs).setValue(OrderTake).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override

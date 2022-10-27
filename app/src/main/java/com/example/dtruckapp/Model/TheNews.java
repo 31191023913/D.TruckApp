@@ -11,7 +11,6 @@ public class TheNews {
     private String detailTT;
     private String imgurl;
 
-
     public TheNews() {
     }
 

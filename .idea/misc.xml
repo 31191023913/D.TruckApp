@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable-v24/bordertv.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable-v24/button_bg.xml" value="0.1895" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable-v24/ic_search.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/background_gradients.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/background_gradients2.xml" value="0.1895" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/borderdecorate.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_signin.xml" value="0.1855" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_signup.xml" value="0.1855" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/buttonblue.xml" value="0.1855" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/buttonsignin.xml" value="0.1635" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/buttonsignup.xml" value="0.1635" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/buttonyellow.xml" value="0.2075" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/container_search.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/headerbackground.xml" value="0.2075" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic__location.xml" value="0.193" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_account.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_add_circle.xml" value="0.211" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_add_circle_outline.xml" value="0.211" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2075" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_baseline_file_download_24.xml" value="0.2075" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_driving.xml" value="0.1895" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_editpen.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_home.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_phone.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_product.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_search.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/ic_service.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/search_backgroundicon.xml" value="0.2075" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_cart.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_dang_ky.xml" value="0.24583333333333332" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_direction.xml" value="0.176" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_home.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_main.xml" value="0.22135416666666666" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_order.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_reset_password.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_sign_in.xml" value="0.24583333333333332" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_user_profie.xml" value="0.19017094017094016" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/activity_user_profile.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/all_posting_order_layout.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/all_your_taken_order.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/button_bg.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem1.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem2.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_blank_s.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_detail_news.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_detail_order.xml" value="0.20170940170940171" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_edit_profile.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_finish_order.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_order.xml" value="0.264" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_service.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_user_profile.xml" value="0.264" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/list_service_car.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/singlerownews.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/menu/menu_item.xml" value="0.11666666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -35,13 +35,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DangNhap extends AppCompatActivity {
     private EditText editEmails, editPassword;
-    private TextView resetpass, btnYs,btnNo;
+    private TextView resetpass;
     private Button btnDangNhap, btnDangKy;
     private FirebaseAuth mAuth;
-
-    private EditText EmailReset;
-    private ProgressDialog loadingBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,76 +66,17 @@ public class DangNhap extends AppCompatActivity {
                 startActivity(signUp);
             }
         });
-        loadingBar = new ProgressDialog(DangNhap.this);
 
         resetpass.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { ResetPassword(Gravity.CENTER); }
+            public void onClick(View view) { ResetPassword(); }
         });
     }
 
-    private void ResetPassword(int center) {
-        Dialog dialog = new Dialog(getApplicationContext());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.fabitem);
-        Window window = dialog.getWindow();
-        if (window == null){
-            return;
-        }
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        WindowManager.LayoutParams windowAttributes = window.getAttributes();
-        windowAttributes.gravity = center;
-        window.setAttributes(windowAttributes);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
-
-        EmailReset = dialog.findViewById(R.id.EmailReset);
-        btnYs = dialog.findViewById(R.id.btnYes);
-        btnNo = dialog.findViewById(R.id.btnNo);
-
-        btnNo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-        btnYs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadingBar.setTitle("Reset Password");
-                loadingBar.setMessage("Vui lòng chờ đợi hệ thống phản hồi");
-                loadingBar.show();
-                loadingBar.setCanceledOnTouchOutside(true);
-
-                String EmailResetS = EmailReset.getEditableText().toString();
-                if (TextUtils.isEmpty(EmailResetS)){
-                    EmailReset.setError("Email là cần thiết để reset password!");
-                    EmailReset.requestFocus();
-                    return;
-                }
-                if (Patterns.EMAIL_ADDRESS.matcher(EmailResetS).matches()){
-                    EmailReset.setError("Hãy nhập địa chỉ email hợp lệ!");
-                    EmailReset.requestFocus();
-                    return;
-                }
-                mAuth.sendPasswordResetEmail(EmailResetS).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                            loadingBar.dismiss();
-                            Toast.makeText(DangNhap.this,"Xin hãy kiểm tra mail của bạn để nhận link reset password",Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            loadingBar.dismiss();
-                            Toast.makeText(DangNhap.this,"Xin hãy kiểm tra mail của bạn để nhận link reset password",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-
+    private void ResetPassword() {
+        Intent resetpass = new Intent(DangNhap.this,ResetPasswordActivity.class);
+        //phong truong hop nhan back lai dang nhap page
+        startActivity(resetpass);
     }
 
     private void DangNhapA() {

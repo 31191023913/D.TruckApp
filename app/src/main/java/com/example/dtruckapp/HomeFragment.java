@@ -39,45 +39,15 @@ public class HomeFragment extends Fragment {
     private ImageSlider imageSlider;
     NewsAdapter newsAdapter;
 
-  /*  ArrayList<TheNews> newsArrayList;*/
     TextView NameUsers;
     FirebaseAuth mAuth;
-
-    public static final String ARG_PARAM1 = "param1";
-    public static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
-
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1,param1);
-        args.putString(ARG_PARAM2,param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View Hview = inflater.inflate(R.layout.fragment_home, container, false);
-
         NameUsers = Hview.findViewById(R.id.nameUser);
-
-
         imageSlider = Hview.findViewById(R.id.image_slider);
         ArrayList<SlideModel> imageList = new ArrayList<>();
         imageList.add(new SlideModel(R.drawable.slide1, ScaleTypes.FIT));
@@ -85,9 +55,7 @@ public class HomeFragment extends Fragment {
         imageList.add(new SlideModel(R.drawable.slide3,ScaleTypes.FIT));
         imageList.add(new SlideModel(R.drawable.slide4,ScaleTypes.FIT));
         imageSlider.setImageList(imageList);
-
         NameUsers.setText(Common.currentUser.getFullName());
-
         recyclerView = Hview.findViewById(R.id.recview_new);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -100,8 +68,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(newsAdapter);
 
         return  Hview;
-
-
     }
 
     @Override

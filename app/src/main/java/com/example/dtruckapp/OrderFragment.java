@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -16,7 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +38,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -58,6 +62,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,17 +70,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class OrderFragment extends Fragment {
     private RecyclerView orderrecyclerView;
     private OrderAdapter orderAdapter;
+    private ArrayList<Order> orderlist,orderlistold;
+    private DatabaseReference uDataref, PostRef, PostRefS;
+    private SearchView searchViewO;
 
     FloatingActionButton fabPostOrder;
     private String saveCurrnentDate, saveCurrnentTime, postRandomname, CurrentUserName,CurrentUserIMG, searchtext;
     private String Current_user_id="";
     private FirebaseAuth userAuth;
-    private DatabaseReference uDataref, PostRef, PostRefS;
     private FirebaseDatabase fdatabase;
     private EditText phonecontactS,carneeded,ordercontent;
     private Button uploadToList,CancelUp;
@@ -83,7 +91,8 @@ public class OrderFragment extends Fragment {
 
     LinearLayoutManager linearLayoutManagerO; // for sorting
     SharedPreferences mSharedPref; //for saving sorting setting
-
+    Toolbar toolbar;
+    private MenuItem menuItem;
 
     String[] carservice = {"Vận chuyển Hàng hóa", "Vận chuyển nhà", "Thuê xe", "Du lịch"};
     AutoCompleteTextView autoCompleteCarser;
@@ -98,7 +107,21 @@ public class OrderFragment extends Fragment {
         fabPostOrder = Oview.findViewById(R.id.btnAddPostOrder);
         userAuth = FirebaseAuth.getInstance();
         Current_user_id = userAuth.getCurrentUser().getUid();
+        toolbar = Oview.findViewById(R.id.layoutheader);
 
+        AppCompatActivity activityS = (AppCompatActivity)getActivity();
+        activityS.setSupportActionBar(toolbar);
+        activityS.getSupportActionBar().setTitle("Tìm đơn ủy thác");
+
+        loadingBar = new ProgressDialog(getContext());
+
+        fdatabase = FirebaseDatabase.getInstance();
+        uDataref = fdatabase.getReference().child("User");
+        PostRef = fdatabase.getReference().child("Orders");
+        orderrecyclerView = Oview.findViewById(R.id.recview_order);
+        /*
+        LinearLayoutManager linearLayoutManagerO = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        */
         mSharedPref= getActivity().getSharedPreferences("SortSetting", Context.MODE_PRIVATE);
         String mSorting= mSharedPref.getString("Sort","newest");// where if no setting, it default is newesst
         if (mSorting.equals("newest")){
@@ -113,25 +136,14 @@ public class OrderFragment extends Fragment {
             linearLayoutManagerO.setStackFromEnd(false);
 
         }
-
-        fdatabase = FirebaseDatabase.getInstance();
-        uDataref = fdatabase.getReference().child("User");
-        PostRef = fdatabase.getReference().child("Orders");
-
-        orderrecyclerView = Oview.findViewById(R.id.recview_order);
-        /*
-        LinearLayoutManager linearLayoutManagerO = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        */
+        orderrecyclerView.setHasFixedSize(true);
         orderrecyclerView.setLayoutManager(linearLayoutManagerO);
-        FirebaseRecyclerOptions<Order> options =
-                new FirebaseRecyclerOptions.Builder<Order>()
-                        .setQuery(PostRef,Order.class)
-                        .build();
-        orderAdapter= new OrderAdapter(options);
+        orderlist = new ArrayList<>();
+        orderAdapter= new OrderAdapter(orderlist,orderlistold);
         orderrecyclerView.setAdapter(orderAdapter);
 
+        GetOrder();
 
-        loadingBar = new ProgressDialog(getContext());
 
         fabPostOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +153,26 @@ public class OrderFragment extends Fragment {
         });
 
         return Oview;
+    }
+
+    private void GetOrder() {
+        PostRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Order orders = dataSnapshot.getValue(Order.class);
+                    orderlist.add(orders);
+                }
+                orderAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
     private void UploadOrder(int gravity) {
@@ -276,45 +308,41 @@ public class OrderFragment extends Fragment {
 
     }
 
-
-    private void mySearch(String newText) {
-        String querys = newText.toLowerCase();
-        fdatabase = FirebaseDatabase.getInstance();
-        PostRefS = fdatabase.getReference("Orders");
-
-        Query searchquery = PostRefS.orderByChild("orderDesc").startAt(querys).endAt(querys+"\uf8ff");
-        FirebaseRecyclerOptions<Order> options =
-                new FirebaseRecyclerOptions.Builder<Order>()
-                        .setQuery(searchquery,Order.class)
-                        .build();
-        orderAdapter= new OrderAdapter(options);
-
-        orderAdapter.startListening();
-        orderrecyclerView.setAdapter(orderAdapter);
-
-
+    @Override
+    public void onCreate(@NonNull Bundle savedInstanceState){
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+    public void onCreateOptionsMenu(@NonNull Menu menu,@NonNull MenuInflater menuInflater){
         menuInflater.inflate(R.menu.menu_item,menu);
+
         MenuItem item = menu.findItem(R.id.SearchID);
-        SearchView searchViewO = (SearchView) item.getActionView();
+
+        searchViewO = (SearchView) item.getActionView();
+        searchViewO.setMaxWidth(Integer.MAX_VALUE);
+        searchViewO.setIconified(true);
+        SearchManager searchManager = (SearchManager)getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchViewO.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchViewO.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String newText) {
-                mySearch(newText);
+            public boolean onQueryTextSubmit(String query) {
+                orderAdapter.getFilter().filter(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                mySearch(newText);
+                orderAdapter.getFilter().filter(newText);
                 return false;
             }
         });
+
         super.onCreateOptionsMenu(menu, menuInflater);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -339,44 +367,31 @@ public class OrderFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i==0){
                             //newest
+                            OrderFragment orderFragment = new OrderFragment();
+                            FragmentManager fm = getActivity().getSupportFragmentManager();
                             SharedPreferences.Editor editor = mSharedPref.edit();
                             editor.putString("Sort","newest");
                             editor.apply();
-                            getActivity().recreate();
+                            fm.beginTransaction().replace(R.id.containerFL,orderFragment)
+                                    .commit();
+
                         }
                         else if (i==1){
                             //oldest
+                            OrderFragment orderFragment = new OrderFragment();
+                            FragmentManager fm = getActivity().getSupportFragmentManager();
+
                             SharedPreferences.Editor editor = mSharedPref.edit();
                             editor.putString("Sort","oldest");
                             editor.apply();
-                            getActivity().recreate();
+
+                            fm.beginTransaction().replace(R.id.containerFL,orderFragment)
+                                    .commit();
+
                         }
                     }
                 });
         builder.show();
     }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        orderAdapter.notifyDataSetChanged();
-
-        if (orderAdapter != null) {
-            orderAdapter.startListening();
-        }
-
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        orderAdapter.notifyDataSetChanged();
-        if (orderAdapter != null) {
-            orderAdapter.stopListening();
-        }
-    }
-
-
-
 
 }

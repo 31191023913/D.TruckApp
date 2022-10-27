@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -35,35 +36,52 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class OrderAdapter extends FirebaseRecyclerAdapter<Order,OrderAdapter.MyOrderviewHolder> {
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyOrderViewHolder> implements Filterable{
 
+    List<Order> ordershow;
+    List<Order> ordershowOld;
 
-    public OrderAdapter(@NonNull FirebaseRecyclerOptions<Order> options) {
-        super(options);
+    public OrderAdapter(ArrayList<Order> ordershow, ArrayList<Order> ordershowOld) {
+        this.ordershow = ordershow;
+        this.ordershowOld = ordershowOld;
     }
 
+
+    @NonNull
     @Override
-    protected void onBindViewHolder(@NonNull MyOrderviewHolder holder, int position, @NonNull Order model) {
-        holder.NamePublisher.setText(model.getOrderNameUser());
-        holder.getDatePost.setText(model.getDataTimePost());
-        holder.NumberContact.setText(model.getOrderNumberPhone());
-        holder.numberCr.setText(model.getOrderCarRequired());
-        holder.txtContenP.setText(model.getOrderDesc());
-        holder.selectservicetruck.setText(model.getOrderCategory());
+    public MyOrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View orderView= LayoutInflater.from(parent.getContext()).inflate(R.layout.all_posting_order_layout,parent,false);
+        return new OrderAdapter.MyOrderViewHolder(orderView);    }
+
+
+    @Override
+    public void onBindViewHolder(@NonNull MyOrderViewHolder holder, int position) {
+        Order orderL = ordershow.get(position);
+        if (orderL==null){
+            return;
+        }
+        holder.NamePublisher.setText(orderL.getOrderNameUser());
+        holder.getDatePost.setText(orderL.getDataTimePost());
+        holder.NumberContact.setText(orderL.getOrderNumberPhone());
+        holder.numberCr.setText(orderL.getOrderCarRequired());
+        holder.txtContenP.setText(orderL.getOrderDesc());
+        holder.selectservicetruck.setText(orderL.getOrderCategory());
         Glide.with(holder.ImgPost.getContext())
-                .load(model.getOrderUserImg())
+                .load(orderL.getOrderUserImg())
                 .placeholder(R.drawable.ic_account)
                 .error(R.drawable.ic_account)
                 .into(holder.ImgPost);
         holder.OrderItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String OrderIDs = model.getOrderuid();
+                String OrderIDs = orderL.getOrderuid();
                 DetailOrderFragment orderFragments = new DetailOrderFragment(OrderIDs);
                 Bundle bundle = new Bundle();
                 bundle.putString("Orderids",OrderIDs);
@@ -75,21 +93,21 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Order,OrderAdapter.MyO
         });
     }
 
-    @NonNull
     @Override
-    public MyOrderviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View orderView= LayoutInflater.from(parent.getContext()).inflate(R.layout.all_posting_order_layout,parent,false);
-        return new OrderAdapter.MyOrderviewHolder(orderView);    }
+    public int getItemCount() {
+        if (ordershow!= null){
+            return ordershow.size();
+        }
+        return 0;
+    }
 
 
-
-    public class MyOrderviewHolder extends RecyclerView.ViewHolder {
-
+    public class MyOrderViewHolder extends RecyclerView.ViewHolder {
         CircleImageView ImgPost;
         TextView NamePublisher, getDatePost, NumberContact, numberCr, txtContenP, selectservicetruck;
         androidx.cardview.widget.CardView OrderItems;
 
-        public MyOrderviewHolder(@NonNull View itemView) {
+        public MyOrderViewHolder(@NonNull View itemView) {
             super(itemView);
             ImgPost = itemView.findViewById(R.id.imgUserPost);
             NamePublisher = itemView.findViewById(R.id.nameUserPost);
@@ -99,10 +117,43 @@ public class OrderAdapter extends FirebaseRecyclerAdapter<Order,OrderAdapter.MyO
             txtContenP = itemView.findViewById(R.id.txtPostContent);
             selectservicetruck = itemView.findViewById(R.id.carServiceCategory);
             OrderItems = itemView.findViewById(R.id.card_itemOrder);
-
-
         }
+    }
 
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String strSearch = charSequence.toString();
+                if (strSearch.isEmpty()){
+                    ordershow = ordershowOld;
+                }else {
+                    List<Order> orderLis = new ArrayList<>();
+                    for (Order orderL:ordershowOld){
+                        if ( orderL.getOrderDesc().toLowerCase().contains(strSearch.toLowerCase()) ||
+                         orderL.getOrderCategory().toLowerCase().contains(strSearch.toLowerCase()) ||
+                        orderL.getOrderNumberPhone().toLowerCase().contains(strSearch.toLowerCase()) ){
+                            orderLis.add(orderL);
+                        }
+                    }
+                    ordershow = orderLis;
+                }
+
+                FilterResults filterResults= new FilterResults();
+                filterResults.values = ordershow;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                ordershow = (List<Order>) filterResults.values;
+                notifyDataSetChanged();
+
+            }
+        };
     }
 
 }
+

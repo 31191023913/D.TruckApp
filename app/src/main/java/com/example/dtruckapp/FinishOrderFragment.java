@@ -103,8 +103,6 @@ public class FinishOrderFragment extends Fragment {
             }
         });
 
-
-
         return FOview;
     }
 
@@ -123,9 +121,8 @@ public class FinishOrderFragment extends Fragment {
         WindowManager.LayoutParams windowAttributes = window.getAttributes();
         windowAttributes.gravity = center;
         window.setAttributes(windowAttributes);
-        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCanceledOnTouchOutside(true);
         dialog.show();
-
         btnDone = dialog.findViewById(R.id.buttonDone);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +131,6 @@ public class FinishOrderFragment extends Fragment {
                 loadingBar.setMessage("Vui lòng chờ đợi hệ thống phản hồi");
                 loadingBar.show();
                 loadingBar.setCanceledOnTouchOutside(true);
-
                 Map<String,Object> GotoAdmin = new HashMap<>();
                 GotoAdmin.put("orderuid",orderIDs);
                 GotoAdmin.put("orderNamePublisher",namePubl);

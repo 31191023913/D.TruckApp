@@ -191,20 +191,14 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-
         SaveProfileChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 UpdataProfile();
-
             }
         });
         return Editview;
-
     }
-
-
 
     private void UpdataProfile() {
 
@@ -285,86 +279,4 @@ public class EditProfileFragment extends Fragment {
         uDataref.child(UserID).addValueEventListener(mListener);
     }
 
-    /*
-    @Override
-    public void onPause(){
-        super.onPause();
-
-        if (uDataref.child(UserID) != null && editProfileListener != null){
-            uDataref.child(UserID).removeEventListener(upImgListener);
-            uDataref.child(UserID).removeEventListener(mListener);
-        }
-        else if (uDataref.child(UserID) != null && upImgListener != null){
-            uDataref.child(UserID).removeEventListener(editProfileListener);
-            uDataref.child(UserID).removeEventListener(mListener);
-        }
-        else if (uDataref.child(UserID) != null && mListener != null){
-            uDataref.child(UserID).removeEventListener(editProfileListener);
-            uDataref.child(UserID).removeEventListener(upImgListener);
-        }
-    }
-*/
-
-
-
-           /*
-        uDataref.child(UserID).updateChildren(mapText).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                mDialog.dismiss();
-                Toast.makeText(getContext(),"Updated Successfully",Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                mDialog.dismiss();
-                Toast.makeText(getContext(),"Failed to update",Toast.LENGTH_LONG).show();
-            }
-        });
-        */
-       /*
-        uDataref.child(UserID).updateChildren(mapText).addOnCompleteListener(updatingProfile);
-
-        updatingProfile = new OnCompleteListener() {
-            @Override
-            public void onComplete(@NonNull Task task) {
-                mDialog.dismiss();
-                if (task.isSuccessful()){
-                    Toast.makeText(getContext(),"Updated Successfully",Toast.LENGTH_LONG).show();
-
-                }
-                else {
-                    Toast.makeText(getContext(),task.getException().toString(),Toast.LENGTH_LONG).show();
-                }
-            }
-        };
-*/
-
-
-        /*
-
-                        uDataref.child(UserID).child("fullName").setValue(fullNameU);
-                        uDataref.child(UserID).child("email").setValue(EmailU);
-                        uDataref.child(UserID).child("phoneNumber").setValue(phoneNumberU);
-                        uDataref.child(UserID).child("password").setValue(PasswordU);
-                        uDataref.child(UserID).child("driveLicense").setValue(driveLiensceU);
-                        uDataref.child(UserID).child("biography").setValue(BioU);
-                                Toast.makeText(getContext(),"Updated Successfully",Toast.LENGTH_LONG).show();
-
-*/
-/*
-        uDataref.child(UserID).updateChildren(mapText).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                mDialog.dismiss();
-                if (task.isSuccessful()){
-                    Toast.makeText(getContext(),"Updated Successfully",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(getContext(),task.getException().toString(),Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
- */
 }

@@ -57,9 +57,7 @@ public class UserProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Pview =  inflater.inflate(R.layout.fragment_user_profile, container, false);
-
         initUI();
-
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         UserID=user.getUid();
         uDataref = FirebaseDatabase.getInstance().getReference().child("User");
@@ -75,15 +73,12 @@ public class UserProfileFragment extends Fragment {
                 GoToEditPage();
             }
         });
-
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SignoutApp();
             }
         });
-
-
         return Pview;
     }
 
@@ -111,10 +106,7 @@ public class UserProfileFragment extends Fragment {
         startActivity(Loggingout);
     }
 
-
-
     private void GoToEditPage() {
-
         EditProfileFragment edituserProfileSs = new EditProfileFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.containerFL,edituserProfileSs).commit();

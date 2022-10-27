@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DangKy extends AppCompatActivity {
 
     private EditText editPhone, editEmailR ,  editName, editPassword, editPass2;
-    private Button btnDangKy;
+    private Button btnDangKy,btnCancels;
 
     private FirebaseAuth mAuth;
 
@@ -41,11 +41,17 @@ public class DangKy extends AppCompatActivity {
         editPhone= findViewById(R.id.editPhoneDK);
         editPassword= findViewById(R.id.editPasswordDK);
         editPass2 = findViewById(R.id.confirmPassword);
-
+        btnCancels = findViewById(R.id.btnCancels);
         mAuth = FirebaseAuth.getInstance();
 
         btnDangKy= findViewById(R.id.btnTaoTK);
-
+        btnCancels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent BACKmAIN = new Intent(DangKy.this, MainActivity.class);
+                startActivity(BACKmAIN);
+            }
+        });
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

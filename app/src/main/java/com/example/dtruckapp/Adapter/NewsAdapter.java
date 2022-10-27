@@ -45,16 +45,15 @@ public class NewsAdapter extends FirebaseRecyclerAdapter<TheNews,NewsAdapter.MyN
                 @Override
                 public void onClick(View view) {
                     AppCompatActivity activity = (AppCompatActivity)view.getContext();
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.containerFL,new DetailNewsFragment(model.getTenTT(),model.getNgayCN(),model.getDetailTT(), model.getImgurl())).addToBackStack(null).commit();
+                    activity.getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.containerFL,new DetailNewsFragment(model.getTenTT(),model.getNgayCN(),model.getDetailTT(), model.getImgurl()))
+                            .addToBackStack(null)
+                            .commit();
                 }
 
             });
     }
 
-    private void OnClickGoToDetail(TheNews model) {
-
-
-    }
 
     @NonNull
     @Override
