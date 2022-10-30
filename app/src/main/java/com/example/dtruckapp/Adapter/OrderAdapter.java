@@ -101,6 +101,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyOrderViewH
         return 0;
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
 
     public class MyOrderViewHolder extends RecyclerView.ViewHolder {
         CircleImageView ImgPost;

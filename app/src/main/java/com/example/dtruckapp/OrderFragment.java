@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -143,7 +144,7 @@ public class OrderFragment extends Fragment {
         orderlistold = new ArrayList<>();
         orderAdapter= new OrderAdapter(orderlist,orderlistold);
         orderrecyclerView.setAdapter(orderAdapter);
-
+        orderAdapter.notifyDataSetChanged();
         GetOrder();
 
         fabPostOrder.setOnClickListener(new View.OnClickListener() {
@@ -288,6 +289,11 @@ public class OrderFragment extends Fragment {
                                         Toast.makeText(getContext(),"Đăng ủy thác thành công!!",Toast.LENGTH_LONG).show();
                                         loadingBar.dismiss();
                                         dialog.dismiss();
+                                        OrderFragment ListOrder = new OrderFragment();
+                                        AppCompatActivity goBackList = (AppCompatActivity)getContext();
+                                        FragmentTransaction fragmentTransaction = goBackList.getSupportFragmentManager().beginTransaction();
+                                        fragmentTransaction.replace(R.id.containerFL,ListOrder).disallowAddToBackStack().commit();
+
                                     }
                                     else {
                                         Toast.makeText(getContext(),"Gặp lỗi khi đăng!!",Toast.LENGTH_LONG).show();
