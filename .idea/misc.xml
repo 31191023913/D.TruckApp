@@ -9,6 +9,8 @@
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/background_gradients.xml" value="0.189" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/background_gradients2.xml" value="0.1895" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/borderdecorate.xml" value="0.189" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_delete.xml" value="0.1895" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_delete2.xml" value="0.1895" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_signin.xml" value="0.1855" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/button_signup.xml" value="0.1855" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/drawable/buttonblue.xml" value="0.1855" />
@@ -48,6 +50,7 @@
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem.xml" value="0.20512820512820512" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem1.xml" value="0.20170940170940171" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem2.xml" value="0.20512820512820512" />
+        <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fabitem3.xml" value="0.20170940170940171" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_blank_s.xml" value="0.25" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
         <entry key="..\:/Work/Android/PlaceSaveASProject/AppD.Truck/app/src/main/res/layout/fragment_detail_news.xml" value="0.25" />

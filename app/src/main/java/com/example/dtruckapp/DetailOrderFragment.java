@@ -1,15 +1,22 @@
 package com.example.dtruckapp;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -35,7 +42,7 @@ import java.util.Map;
 public class DetailOrderFragment extends Fragment {
     private EditText NumberTruckProvived;
     private TextView Publisher, DateUp, PhoneContact, CategoryPost, DetailOrders, numberTheywant;
-    private Button TakeOrder;
+    private Button TakeOrder, DeleteOrder, btnNos,btnYess;
     private ImageButton GoBackList;
     private String orderIDs,Nt,Rq;
     private DatabaseReference OrderDaRef, AddToCart;
@@ -67,6 +74,7 @@ public class DetailOrderFragment extends Fragment {
         numberTheywant = OrderDview.findViewById(R.id.numberTheywant);
         GoBackList = OrderDview.findViewById(R.id.backtolist);
         NumberTruckProvived = OrderDview.findViewById(R.id.NumberTruckYouProvive);
+        DeleteOrder = OrderDview.findViewById(R.id.btnDeleteOrder);
 
         Dauth = FirebaseAuth.getInstance();
         Current_Driver_id = Dauth.getCurrentUser().getUid();
@@ -88,8 +96,65 @@ public class DetailOrderFragment extends Fragment {
             }
         });
 
+        if (orderIDs.contains(Current_Driver_id)){
+            DeleteOrder.setVisibility(View.VISIBLE);
+            DeleteOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DeleteThisOrder(orderIDs,Gravity.CENTER);
+                }
+            });
+        }
+
         return OrderDview;
         
+    }
+
+    private void DeleteThisOrder(String orderIDs, int center) {
+        Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.fabitem1);
+        Window window = dialog.getWindow();
+        if (window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = center;
+        window.setAttributes(windowAttributes);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        OrderDaRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        btnNos = dialog.findViewById(R.id.btnNoCancels);
+        btnYess = dialog.findViewById(R.id.btnYesDeleteIT);
+
+        btnNos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        btnYess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OrderDaRef.child(orderIDs).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(getContext(),"Hủy đơn thành công!!",Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
+                            OrderFragment ListOrder = new OrderFragment();
+                            AppCompatActivity goBackList = (AppCompatActivity)getContext();
+                            FragmentTransaction fragmentTransaction = goBackList.getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.containerFL,ListOrder).disallowAddToBackStack().commit();
+
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private void AddToCartList() {
@@ -114,7 +179,7 @@ public class DetailOrderFragment extends Fragment {
         OrderTake.put("orderTakenBy", Common.currentUser.getFullName());
 
         if (orderIDs.contains(Current_Driver_id)){
-            Toast.makeText(getContext(),"Bạn là người ra ủy thác không thể nhận đơn này!!",Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),"Đây là ủy thác của bạn nếu không muốn có thể hủy!!",Toast.LENGTH_LONG).show();
         } else if (giveN == 0) {
             Toast.makeText(getContext(),"Bạn chưa nhập số lượng xe bạn sẽ cung ứng!!",Toast.LENGTH_LONG).show();
         } else if (giveN < Integer.parseInt(numberTheywant.getText().toString())) {
@@ -126,6 +191,10 @@ public class DetailOrderFragment extends Fragment {
                         Map<String, Object> mapNuM = new HashMap<>();
                         mapNuM.put("orderCarRequired", String.valueOf(requica - giveN));
                         OrderDaRef.child(orderIDs).updateChildren(mapNuM);
+                        OrderFragment ListOrder = new OrderFragment();
+                        AppCompatActivity goBackList = (AppCompatActivity)getContext();
+                        FragmentTransaction fragmentTransaction = goBackList.getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.containerFL,ListOrder).disallowAddToBackStack().commit();
                     }
                 }
             });
@@ -136,6 +205,10 @@ public class DetailOrderFragment extends Fragment {
                     if (task.isSuccessful()) {
                         Toast.makeText(getContext(), "Nhận ủy thác thành công!!", Toast.LENGTH_LONG).show();
                         OrderDaRef.child(orderIDs).removeValue();
+                        OrderFragment ListOrder = new OrderFragment();
+                        AppCompatActivity goBackList = (AppCompatActivity)getContext();
+                        FragmentTransaction fragmentTransaction = goBackList.getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.containerFL,ListOrder).disallowAddToBackStack().commit();
                     }
                 }
             });

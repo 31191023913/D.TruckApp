@@ -8,191 +8,205 @@
     android:background="@drawable/backgroundregis"
     tools:context=".DangKy">
 
-
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:src="@drawable/logodtruck"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:text="Đăng Ký"
-            android:layout_marginTop="15dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textStyle="italic"
-            android:textSize="18dp"
-            android:textColor="@android:color/black"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editEmailDK"
-            android:hint="Email đăng ký"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="24dp"
-            android:inputType="textEmailAddress"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
-    </LinearLayout>
+                <ImageView
+                    android:src="@drawable/logodtruck"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:text="Đăng Ký"
+                    android:layout_marginTop="15dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Số điện thoại"
-            android:textStyle="italic"
-            android:textSize="18dp"
-            android:textColor="@android:color/black"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editPhoneDK"
-            android:hint="Số điện thoại đang dùng"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="24dp"
-            android:inputType="phone"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textStyle="italic"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/black"/>
 
-    </LinearLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editEmailDK"
+                    android:hint="Email đăng ký"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:inputType="textEmailAddress"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp">
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Họ và Tên"
-            android:textStyle="italic"
-            android:textSize="18dp"
-            android:textColor="@android:color/black"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editNameDK"
-            android:hint="VD: Đào Duy Thanh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="24dp"
-            android:inputType="textPersonName"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại"
+                    android:textStyle="italic"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/black"/>
 
-    </LinearLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editPhoneDK"
+                    android:hint="Số điện thoại đang dùng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:inputType="phone"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp">
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mật khẩu"
-            android:textSize="18dp"
-            android:textStyle="italic"
-            android:textColor="@android:color/black" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editPasswordDK"
-            android:hint="Mật khẩu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="24dp"
-            android:inputType="textPassword"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Họ và Tên"
+                    android:textStyle="italic"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/black"/>
 
-    </LinearLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editNameDK"
+                    android:hint="VD: Đào Duy Thanh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:inputType="textPersonName"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp">
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Xác định lại mật khẩu"
-            android:textSize="18dp"
-            android:textStyle="italic"
-            android:textColor="@android:color/black" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/confirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập lại mật khẩu"
-            android:textColor="@android:color/black"
-            android:textSize="24dp"
-            android:inputType="textPassword"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mật khẩu"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/black" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="right"
-        android:weightSum="2">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editPasswordDK"
+                    android:hint="Mật khẩu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:inputType="textPassword"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCancels"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_signup"
-            android:text="QUAY LẠI"
-            android:textColor="@android:color/white" />
+            </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnTaoTK"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_signin"
-            android:text="TẠO TÀI KHOẢN"
-            android:textColor="@android:color/black" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Xác định lại mật khẩu"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập lại mật khẩu"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp"
+                    android:inputType="textPassword"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCancels"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_signup"
+                    android:text="QUAY LẠI"
+                    android:textColor="@android:color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnTaoTK"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_signin"
+                    android:text="TẠO TÀI KHOẢN"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 

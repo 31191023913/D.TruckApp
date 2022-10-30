@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +40,8 @@ import java.util.Map;
 
 public class FinishOrderFragment extends Fragment {
     private String orderIDs, numbercontacts, namePubl,txtContents, selectServi,numberUgives,driverTake;
-    private TextView Publisher, PhoneContact, CategoryPost, DetailOrders, numberUgive, CompleteOrder, btnDone;
+    private TextView Publisher, PhoneContact, CategoryPost, DetailOrders, numberUgive, CompleteOrder, btnDone, buttonCancelOrder;
+    private Button BtnYesss, BtnNooo;
     private DatabaseReference completeOrder, recentOrder;
     ImageButton GoBackListCartR;
     private FirebaseAuth Dauth;
@@ -73,6 +75,7 @@ public class FinishOrderFragment extends Fragment {
         numberUgive = FOview.findViewById(R.id.numberUwantC);
         GoBackListCartR = FOview.findViewById(R.id.backtolistCart);
         CompleteOrder = FOview.findViewById(R.id.buttonPay);
+        buttonCancelOrder =FOview.findViewById(R.id.buttonCancelOrder);
 
         Publisher.setText(namePubl);
         PhoneContact.setText(numbercontacts);
@@ -103,7 +106,62 @@ public class FinishOrderFragment extends Fragment {
             }
         });
 
+        buttonCancelOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CancelOrder(Gravity.CENTER,orderIDs);
+            }
+        });
+
         return FOview;
+    }
+
+    private void CancelOrder(int centers, String orderIDs) {
+
+        Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.fabitem3);
+        Window window = dialog.getWindow();
+        if (window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = centers;
+        window.setAttributes(windowAttributes);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+        BtnYesss = dialog.findViewById(R.id.btnYesIDo);
+        BtnNooo = dialog.findViewById(R.id.btnNoIdontWant);
+        recentOrder = FirebaseDatabase.getInstance().getReference().child("OrderReceiveList").child(Current_Driver_id);
+
+        BtnNooo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        BtnYesss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recentOrder.child(orderIDs).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(getContext(),"Hủy đơn thành công!!",Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
+                            CartFragment cartF = new CartFragment();
+                            AppCompatActivity goBackCa = (AppCompatActivity)getContext();
+                            FragmentTransaction fragmentTransaction = goBackCa.getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.containerFL,cartF).disallowAddToBackStack().commit();
+                        }
+                    }
+                });
+            }
+        });
+
     }
 
     private void CompleteXD(int center, String orderIDs, String numbercontacts, String namePubl, String txtContents, String selectServi, String numberUgives, String driverTake) {

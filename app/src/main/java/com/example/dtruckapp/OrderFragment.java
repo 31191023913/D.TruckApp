@@ -71,13 +71,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 
 public class OrderFragment extends Fragment {
     private RecyclerView orderrecyclerView;
     private OrderAdapter orderAdapter;
     private List<Order> orderlist,orderlistold;
-    private DatabaseReference uDataref, PostRef, PostRefS;
+    private DatabaseReference uDataref, PostRef;
     private SearchView searchViewO;
 
     FloatingActionButton fabPostOrder;
@@ -260,9 +261,9 @@ public class OrderFragment extends Fragment {
         SimpleDateFormat currentTime = new SimpleDateFormat("HH;mm");
         saveCurrnentTime = currentTime.format(calforTime.getTime());
 
-        postRandomname = saveCurrnentDate + " "+ saveCurrnentTime;
-
-
+        postRandomname = saveCurrnentDate + " "+ saveCurrnentTime+" ";
+        Random random = new Random();
+        int randomthing = random.nextInt();
         uDataref.child(Current_user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -271,7 +272,7 @@ public class OrderFragment extends Fragment {
                     CurrentUserIMG = snapshot.child("urlImage").getValue().toString();
 
                     Map<String,Object> mapPost=new HashMap<>();
-                    mapPost.put("orderuid",Current_user_id + postRandomname);
+                    mapPost.put("orderuid",Current_user_id + postRandomname + randomthing);
                     mapPost.put("orderNameUser",CurrentUserName);
                     mapPost.put("orderUserImg",CurrentUserIMG);
                     mapPost.put("dataTimePost",postRandomname);
@@ -279,7 +280,7 @@ public class OrderFragment extends Fragment {
                     mapPost.put("orderCarRequired",carNeeded);
                     mapPost.put("orderDesc",descOrder);
                     mapPost.put("orderCategory",selectedSer);
-                    PostRef.child(Current_user_id + postRandomname).setValue(mapPost)
+                    PostRef.child(Current_user_id + postRandomname + randomthing).setValue(mapPost)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
